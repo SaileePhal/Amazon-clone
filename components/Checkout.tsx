@@ -49,7 +49,7 @@ const Checkout = () => {
                             {
                                 cart.map((product: any) => {
                                     return (
-                                        <div className='my-4'>
+                                        <div className='my-4' key={product.id}>
                                             <div className='flex text-center justify-between'>
                                                 <Image src={product.image} alt={product.title} width={150} height={150} />
                                                 <h1 className='font-bold text-lg'>{product.title}</h1>

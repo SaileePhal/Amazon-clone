@@ -1,8 +1,8 @@
 // components/CountdownTimer.js
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const CountdownTimer = ({ targetDate }) => {
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = useCallback(() => {
     const difference = +new Date(targetDate) - +new Date();
     let timeLeft = {};
 
@@ -16,7 +16,7 @@ const CountdownTimer = ({ targetDate }) => {
     }
 
     return timeLeft;
-  };
+  }, [targetDate]);
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -26,7 +26,7 @@ const CountdownTimer = ({ targetDate }) => {
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, [timeLeft]);
+  }, [calculateTimeLeft]);
 
   const timerComponents = [];
 
@@ -44,7 +44,7 @@ const CountdownTimer = ({ targetDate }) => {
 
   return (
     <div>
-      {timerComponents.length ? timerComponents : <span>Time's up!</span>}
+      {timerComponents.length ? timerComponents : <span>Time&apos;s up!</span>}
     </div>
   );
 };

@@ -104,7 +104,7 @@ const Header = () => {
             <div className='bg-[#232F3E] w-full text-white p-2 flex justify-between items-center'>
                 <div className='flex overflow-x-auto'>
                 {itemList.map((item, idx) => (
-                        <Link key={idx} href={links[item]} className='mx-2 hover:border hover:border-white p-2'>
+                        <Link key={idx} href={links[item as keyof typeof links]} className='mx-2 hover:border hover:border-white p-2'>
                             {item}
                         </Link>
                     ))}

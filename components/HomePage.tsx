@@ -15,7 +15,7 @@ const HomePage = () => {
   useEffect(() => {
     getMensClothing();
     getWomensClothing();
-  }, [])
+  }, [getMensClothing,getWomensClothing])
 
   return (
     <div className='bg-[#E6F3FF] dark:text-black dark:bg-gray-900'>
@@ -27,7 +27,7 @@ const HomePage = () => {
         {
           mensProduct.map((product: any) => {
             return (
-              <div>
+              <div key={product.id}>
                 <CategoryWiseProduct product={product} />
               </div>
             )
@@ -36,7 +36,7 @@ const HomePage = () => {
         {
           womensProduct.map((product: any) => {
             return (
-              <div>
+              <div key={product.id}>
                 <CategoryWiseProduct product={product} />
               </div>
             )

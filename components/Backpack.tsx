@@ -13,7 +13,7 @@ const Backpack = () => {
     
       useEffect(() => {
         getBackpack();
-      }, [])
+      }, [getBackpack])
 
   return (
         <div className='bg-[#E6F3FF] dark:text-black dark:bg-gray-900'>
@@ -25,7 +25,7 @@ const Backpack = () => {
             {
               backpackProducts.map((product: any) => {
                 return (
-                  <div>
+                  <div key={product.id}>
                     <CategoryWiseProduct product={product} />
                   </div>
                 )

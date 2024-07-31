@@ -25,7 +25,7 @@ const Success = () => {
                         <h2 className='text-xl font-semibold mb-4 border-b pb-2 dark:text-white'>Order Details</h2>
                         <div className='space-y-4'>
                             {cart.map((product: any) => (
-                                <div className='flex items-center justify-between py-4 border-b dark:border-gray-700'>
+                                <div key={product.id} className='flex items-center justify-between py-4 border-b dark:border-gray-700'>
                                     <div className='flex items-center'>
                                         <Image src={product.image} alt={product.title} height={80} width={80} className="object-cover rounded" />
                                         <h3 className='ml-4 font-medium dark:text-white'>{product.title}</h3>
